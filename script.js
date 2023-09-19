@@ -14,10 +14,93 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  //
+
+  var hour9 = $('#hour-9');
+  if(dayjs().format('HH') == 9){
+    hour9.addClass('present');
+  } else if(dayjs().format('HH') > 9) {
+    hour9.addClass('past');
+  }
+
+  var hour10 = $('#hour-10');
+  if(dayjs().format('HH') == 10){
+    hour10.addClass('present');
+  } else if(dayjs().format('HH') < 10) {
+    hour10.addClass('future');
+  } else if(dayjs().format('HH') > 10) {
+    hour10.addClass('past');
+  }
+
+  var hour11 = $('#hour-11');
+  if(dayjs().format('HH') == 11){
+    hour11.addClass('present');
+  } else if(dayjs().format('HH') < 11) {
+    hour11.addClass('future');
+  } else if(dayjs().format('HH') > 11) {
+    hour11.addClass('past');
+  }
+
+  var hour12 = $('#hour-12');
+  if(dayjs().format('HH') == 12){
+    hour12.addClass('present');
+  } else if(dayjs().format('HH') < 12) {
+    hour12.addClass('future');
+  } else if(dayjs().format('HH') > 12) {
+    hour12.addClass('past');
+  }
+
+  var hour13 = $('#hour-13');
+  if(dayjs().format('HH') == 13){
+    hour13.addClass('present');
+  } else if(dayjs().format('HH') < 13) {
+    hour13.addClass('future');
+  } else if(dayjs().format('HH') > 13) {
+    hour13.addClass('past');
+  }
+
+  var hour14 = $('#hour-14');
+  if(dayjs().format('HH') == 14){
+    hour14.addClass('present');
+  } else if(dayjs().format('HH') < 14) {
+    hour14.addClass('future');
+  } else if(dayjs().format('HH') > 14) {
+    hour14.addClass('past');
+  }
+
+  var hour15 = $('#hour-15');
+  if(dayjs().format('HH') == 15){
+    hour15.addClass('present');
+  } else if(dayjs().format('HH') < 15) {
+    hour15.addClass('future');
+  } else if(dayjs().format('HH') > 15) {
+    hour15.addClass('past');
+  }
+
+  var hour16 = $('#hour-16');
+  if(dayjs().format('HH') == 16){
+    hour16.addClass('present');
+  } else if(dayjs().format('HH') < 16) {
+    hour16.addClass('future');
+  } else if(dayjs().format('HH') > 16) {
+    hour16.addClass('past');
+  }
+
+  var hour17 = $('#hour-17');
+  if(dayjs().format('HH') == 17){
+    hour17.addClass('present');
+  } else if(dayjs().format('HH') < 17) {
+    hour17.addClass('future');
+  } else if(dayjs().format('HH') > 17) {
+    hour17.addClass('past');
+  }
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
+  // console.log(hour9.children[1])
+
+
+  var today = dayjs()
+  $('#currentDay').text(today.format('dddd, MMMM D, YYYY'))
 });
