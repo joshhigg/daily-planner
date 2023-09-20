@@ -1,28 +1,92 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
 
+$(function () {
+
+  $('#saveAlert').hide();
+  
   var hour9 = $('#hour-9');
+  var hour10 = $('#hour-10');
+  var hour11 = $('#hour-11');
+  var hour12 = $('#hour-12');
+  var hour13 = $('#hour-13');
+  var hour14 = $('#hour-14');
+  var hour15 = $('#hour-15');
+  var hour16 = $('#hour-16');
+  var hour17 = $('#hour-17');
+  var button = $('.btn')
+
+  //Show alert when save button is clicked
+  button.on('click',function() {
+    $('#saveAlert').show();
+    setTimeout(function() {
+      $('#saveAlert').hide();
+    }, 2000);
+  })
+
+  //Store event when the save button is clicked
+  hour9.children().eq(2).on('click', function () {
+    var hour9Item = hour9.children().eq(1).val()
+    localStorage.setItem("hour9", hour9Item);
+  });
+  
+  hour10.children().eq(2).on('click', function () {
+    var hour10Item = hour10.children().eq(1).val()
+    localStorage.setItem("hour10", hour10Item);
+  });
+  
+  hour11.children().eq(2).on('click', function () {
+    var hour11Item = hour11.children().eq(1).val()
+    localStorage.setItem("hour11", hour11Item);
+  });
+
+  hour12.children().eq(2).on('click', function () {
+    var hour12Item = hour12.children().eq(1).val()
+    localStorage.setItem("hour12", hour12Item);
+  });
+
+  hour13.children().eq(2).on('click', function () {
+    var hour13Item = hour13.children().eq(1).val()
+    localStorage.setItem("hour13", hour13Item);
+  });
+
+  hour13.children().eq(2).on('click', function () {
+    var hour13Item = hour13.children().eq(1).val()
+    localStorage.setItem("hour13", hour13Item);
+  });
+
+  hour13.children().eq(2).on('click', function () {
+    var hour13Item = hour13.children().eq(1).val()
+    localStorage.setItem("hour13", hour13Item);
+  });
+
+  hour14.children().eq(2).on('click', function () {
+    var hour14Item = hour14.children().eq(1).val()
+    localStorage.setItem("hour14", hour14Item);
+  });
+
+  hour15.children().eq(2).on('click', function () {
+    var hour15Item = hour15.children().eq(1).val()
+    localStorage.setItem("hour15", hour15Item);
+  });
+
+  hour16.children().eq(2).on('click', function () {
+    var hour16Item = hour16.children().eq(1).val()
+    localStorage.setItem("hour16", hour16Item);
+  });
+
+  hour17.children().eq(2).on('click', function () {
+    var hour17Item = hour17.children().eq(1).val()
+    localStorage.setItem("hour17", hour17Item);
+  });
+ 
+  //Check the time and display the color for past, present, or future
   if(dayjs().format('HH') == 9){
     hour9.addClass('present');
+  } else if(dayjs().format('HH') < 9) {
+    hour10.addClass('future');
   } else if(dayjs().format('HH') > 9) {
     hour9.addClass('past');
   }
 
-  var hour10 = $('#hour-10');
   if(dayjs().format('HH') == 10){
     hour10.addClass('present');
   } else if(dayjs().format('HH') < 10) {
@@ -31,7 +95,6 @@ $(function () {
     hour10.addClass('past');
   }
 
-  var hour11 = $('#hour-11');
   if(dayjs().format('HH') == 11){
     hour11.addClass('present');
   } else if(dayjs().format('HH') < 11) {
@@ -40,7 +103,6 @@ $(function () {
     hour11.addClass('past');
   }
 
-  var hour12 = $('#hour-12');
   if(dayjs().format('HH') == 12){
     hour12.addClass('present');
   } else if(dayjs().format('HH') < 12) {
@@ -49,7 +111,6 @@ $(function () {
     hour12.addClass('past');
   }
 
-  var hour13 = $('#hour-13');
   if(dayjs().format('HH') == 13){
     hour13.addClass('present');
   } else if(dayjs().format('HH') < 13) {
@@ -58,7 +119,6 @@ $(function () {
     hour13.addClass('past');
   }
 
-  var hour14 = $('#hour-14');
   if(dayjs().format('HH') == 14){
     hour14.addClass('present');
   } else if(dayjs().format('HH') < 14) {
@@ -67,7 +127,6 @@ $(function () {
     hour14.addClass('past');
   }
 
-  var hour15 = $('#hour-15');
   if(dayjs().format('HH') == 15){
     hour15.addClass('present');
   } else if(dayjs().format('HH') < 15) {
@@ -76,7 +135,6 @@ $(function () {
     hour15.addClass('past');
   }
 
-  var hour16 = $('#hour-16');
   if(dayjs().format('HH') == 16){
     hour16.addClass('present');
   } else if(dayjs().format('HH') < 16) {
@@ -85,7 +143,6 @@ $(function () {
     hour16.addClass('past');
   }
 
-  var hour17 = $('#hour-17');
   if(dayjs().format('HH') == 17){
     hour17.addClass('present');
   } else if(dayjs().format('HH') < 17) {
@@ -94,13 +151,42 @@ $(function () {
     hour17.addClass('past');
   }
 
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // console.log(hour9.children[1])
+  //Retrieve the stored events and display them when the page is reloaded
+  function displayStoredItems() {
+    var hour9Displayed = localStorage.getItem("hour9");
+    var hour10Displayed = localStorage.getItem("hour10");
+    var hour11Displayed = localStorage.getItem("hour11");
+    var hour12Displayed = localStorage.getItem("hour12");
+    var hour13Displayed = localStorage.getItem("hour13");
+    var hour14Displayed = localStorage.getItem("hour14");
+    var hour15Displayed = localStorage.getItem("hour15");
+    var hour16Displayed = localStorage.getItem("hour16");
+    var hour17Displayed = localStorage.getItem("hour17");
+    var hour9El = hour9.children().eq(1);
+    var hour10El = hour10.children().eq(1);
+    var hour11El = hour11.children().eq(1);
+    var hour12El = hour12.children().eq(1);
+    var hour13El = hour13.children().eq(1);
+    var hour14El = hour14.children().eq(1);
+    var hour15El = hour15.children().eq(1);
+    var hour16El = hour16.children().eq(1);
+    var hour17El = hour17.children().eq(1);
+    hour9El.text(hour9Displayed);
+    hour10El.text(hour10Displayed);
+    hour11El.text(hour11Displayed);
+    hour12El.text(hour12Displayed);
+    hour13El.text(hour13Displayed);
+    hour14El.text(hour14Displayed);
+    hour15El.text(hour15Displayed);
+    hour16El.text(hour16Displayed);
+    hour17El.text(hour17Displayed);
+  }
 
 
+  displayStoredItems()
+
+  //Display current time
   var today = dayjs()
   $('#currentDay').text(today.format('dddd, MMMM D, YYYY'))
 });
+
